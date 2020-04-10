@@ -6,7 +6,7 @@ RUN apt-get update && apt-get install zip unzip
 # MOVE CONTENTS TO APACHE FOLDER
 COPY html/ /var/www/html/
 COPY tests/ /var/www/tests/
-COPY vendor/ /var/www/vendor/
+# COPY vendor/ /var/www/vendor/ this folder is created by composer install
 
 # INSTALL COMPOSER
 RUN curl -sS https://getcomposer.org/installer | php
