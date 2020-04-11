@@ -8,9 +8,8 @@ COPY html/ /var/www/html/
 COPY tests/ /var/www/tests/
 # COPY vendor/ /var/www/vendor/ this folder is created by composer install
 
-# INSTALL COMPOSER
-RUN curl -s https://getcomposer.org/installer | php
-RUN mv composer.phar /usr/local/bin/composer
+# INSTALL COMPOSER & MOVE TO BIN DIRECTORY TO BE USED GLOBALLY
+RUN curl -s https://getcomposer.org/installer | php && mv composer.phar /usr/local/bin/composer
 
 # RUN COMPOSER
 COPY composer.json /var/www/
