@@ -10,8 +10,9 @@ COPY tests/ /var/www/tests/
 
 # INSTALL COMPOSER & MOVE TO BIN DIRECTORY TO BE USED GLOBALLY
 # RUN cd ~ && openssl s_client -showcerts -servername getcomposer.org -connect getcomposer.org:443 > cacert.pem
-RUN cd ~ && curl -k https://getcomposer.org/installer | php
-RUN cd ~ && mv composer.phar /usr/local/bin/composer
+# RUN cd ~ && curl -k https://getcomposer.org/installer | php
+COPY composer-src-1.10.5/composer.phar /usr/local/bin/composer
+RUN chmod 755 /usr/local/bin/composer
 RUN composer
 
 
