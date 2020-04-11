@@ -15,6 +15,7 @@ COPY composer-src-1.10.5/composer.phar /usr/local/bin/composer
 RUN chmod 755 /usr/local/bin/composer
 RUN composer
 
+RUN apt-get install --reinstall ca-certificates
 
 # RUN COMPOSER
 COPY composer.json /var/www/
