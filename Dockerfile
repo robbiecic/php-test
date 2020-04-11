@@ -12,7 +12,7 @@ COPY tests/ /var/www/tests/
 #RUN cd ~ && curl -s https://getcomposer.org/installer | php
 #RUN cd ~ && mv composer.phar /usr/local/bin/composer
 RUN curl -s https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
-
+RUN composer
 
 # RUN COMPOSER
 COPY composer.json /var/www/
