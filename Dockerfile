@@ -9,7 +9,7 @@ COPY tests/ /var/www/tests/
 # COPY vendor/ /var/www/vendor/ this folder is created by composer install
 
 # INSTALL COMPOSER
-RUN curl -sS -k https://getcomposer.org/installer --insecure | php
+RUN curl -s https://getcomposer.org/installer | php
 RUN mv composer.phar /usr/local/bin/composer
 
 # RUN COMPOSER
