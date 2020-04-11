@@ -11,7 +11,7 @@ COPY tests/ /var/www/tests/
 # INSTALL COMPOSER & MOVE TO BIN DIRECTORY TO BE USED GLOBALLY
 #RUN cd ~ && curl -s https://getcomposer.org/installer | php
 #RUN cd ~ && mv composer.phar /usr/local/bin/composer
-RUN curl -sk https://getcomposer.org/installer | php -- --disable-tls --install-dir=/usr/local/bin --filename=composer
+RUN curl -s https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 
 # RUN COMPOSER
