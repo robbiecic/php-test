@@ -9,9 +9,10 @@ COPY tests/ /var/www/tests/
 # COPY vendor/ /var/www/vendor/ this folder is created by composer install
 
 # INSTALL COMPOSER & MOVE TO BIN DIRECTORY TO BE USED GLOBALLY
-RUN cd ~ && curl -s https://getcomposer.org/installer | php
-RUN cd ~ && ls
-RUN cd ~ && mv composer.phar /usr/local/bin/composer
+#RUN cd ~ && curl -s https://getcomposer.org/installer | php
+#RUN cd ~ && mv composer.phar /usr/local/bin/composer
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+
 
 # RUN COMPOSER
 COPY composer.json /var/www/
