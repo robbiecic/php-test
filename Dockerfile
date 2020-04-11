@@ -9,16 +9,15 @@ COPY tests/ /var/www/tests/
 # COPY vendor/ /var/www/vendor/ this folder is created by composer install
 
 # INSTALL COMPOSER & MOVE TO BIN DIRECTORY TO BE USED GLOBALLY
-# RUN cd ~ && openssl s_client -showcerts -servername getcomposer.org -connect getcomposer.org:443 > cacert.pem
-# RUN cd ~ && curl -k https://getcomposer.org/installer | php
-COPY composer-src-1.10.5/composer.phar /usr/local/bin/composer
-RUN chmod 755 /usr/local/bin/composer
+RUN cd ~ && curl -sS https://getcomposer.org/installer | php
+# COPY composer-src-1.10.5/composer.phar /usr/local/bin/composer
+RUN cd ~ && mv composer.phar /usr/local/bin/composer
 RUN composer
-
+# RUN openssl version
 
 # RUN COMPOSER
-COPY composer.json /var/www/
-RUN cd /var/www/ && composer install && composer require --dev phpunit/phpunit && composer dump-autoload
+# COPY composer.json /var/www/
+# RUN cd /var/www/ && composer install && composer require --dev phpunit/phpunit && composer dump-autoload
 
 # CHECK INSTALLATION
 # RUN ls /var/www
