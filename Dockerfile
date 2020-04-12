@@ -10,9 +10,7 @@ COPY tests/ /var/www/tests/
 
 
 # I think I need to append my self-signed SSL cert into /etc/ssl/certs/ca-certificates.crt
-COPY certs/ /usr/local/certs/
-RUN cat /usr/local/certs/ca-certificates.crt >> /etc/ssl/certs/ca-certificates.crt
-RUN cat /etc/ssl/certs/ca-certificates.crt
+COPY certs/ca-certificates.crt /usr/local/share/ca-certificates
 RUN update-ca-certificates
 
 # INSTALL COMPOSER & MOVE TO BIN DIRECTORY TO BE USED GLOBALLY
