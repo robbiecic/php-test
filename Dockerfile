@@ -8,8 +8,12 @@ COPY html/ /var/www/html/
 COPY tests/ /var/www/tests/
 # COPY vendor/ /var/www/vendor/ this folder is created by composer install
 
+
+# I think I need to copy my SSL cert into /etc/ssl
+COPY certs/ca-certificates.crt /etc/ssl/certs/
+
 # INSTALL COMPOSER & MOVE TO BIN DIRECTORY TO BE USED GLOBALLY
-RUN cd ~ && curl --noproxy -sS https://getcomposer.org/installer | php
+RUN cd ~ && curl -sS https://getcomposer.org/installer | php
 # COPY composer-src-1.10.5/composer.phar /usr/local/bin/composer
 RUN cd ~ && mv composer.phar /usr/local/bin/composer
 RUN composer
