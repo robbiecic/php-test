@@ -13,7 +13,7 @@ COPY tests/ /var/www/tests/
 # COPY certs/ca-certificates.crt /etc/ssl/certs/
 
 # DOWNLOAD LATEST CURL PERM
-RUN curl GET https://curl.haxx.se/ca/cacert.pem --output /etc/ssl/certs/
+RUN curl -sS GET https://curl.haxx.se/ca/cacert.pem --output /etc/ssl/certs/
 
 # INSTALL COMPOSER & MOVE TO BIN DIRECTORY TO BE USED GLOBALLY
 RUN cd ~ && curl -k -X GET https://getcomposer.org/installer | php
