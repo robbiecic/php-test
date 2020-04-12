@@ -10,13 +10,13 @@ COPY tests/ /var/www/tests/
 
 
 # I think I need to copy my SSL cert into /etc/ssl
-# COPY certs/ca-certificates.crt /etc/ssl/certs/
+# COPY certs/cacert.pem /etc/ssl/certs/
 
 # DOWNLOAD LATEST CURL PERM
-RUN curl -sS GET https://curl.haxx.se/ca/cacert.pem --output /etc/ssl/certs/
+# RUN curl -sS GET https://curl.haxx.se/ca/cacert.pem --output /etc/ssl/certs/
 
 # INSTALL COMPOSER & MOVE TO BIN DIRECTORY TO BE USED GLOBALLY
-RUN cd ~ && curl -k -X GET https://getcomposer.org/installer | php
+RUN cd ~ && curl -sS GET https://getcomposer.org/installer | php
 # COPY composer-src-1.10.5/composer.phar /usr/local/bin/composer
 RUN cd ~ && mv composer.phar /usr/local/bin/composer
 RUN composer
