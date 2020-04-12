@@ -20,7 +20,7 @@ RUN update-ca-certificates
 # INSTALL COMPOSER & MOVE TO BIN DIRECTORY TO BE USED GLOBALLY
 # RUN cd ~ && curl -sSk GET https://getcomposer.org/installer | php RUN mv composer.phar /usr/local/bin/composer
 
-RUN cd ~ && curl -sS GET https://getcomposer.org/installer | php
+RUN cd ~ && curl -s GET https://getcomposer.org/installer | php
 RUN cd ~ && mv composer.phar /usr/local/bin/composer
 RUN composer
 
