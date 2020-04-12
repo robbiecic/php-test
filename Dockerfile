@@ -15,7 +15,7 @@ COPY tests/ /var/www/tests/
 # DOWNLOAD LATEST CURL PERM
 # RUN curl -sS GET https://curl.haxx.se/ca/cacert.pem --output /etc/ssl/certs/
 
-RUN openssl s_client -connect getcomposer.org
+RUN openssl s_client -connect getcomposer.org:443
 
 # INSTALL COMPOSER & MOVE TO BIN DIRECTORY TO BE USED GLOBALLY
 # RUN cd ~ && curl -sS GET https://getcomposer.org/installer | php && mv composer.phar /usr/local/bin/composer
