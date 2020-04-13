@@ -1,7 +1,7 @@
 pipeline {
     agent {
         dockerfile {
-            args '–-network=host'
+            additionalBuildArgs '–-network=host'
             }
         }
     stages {
