@@ -2,7 +2,7 @@ pipeline {
     agent {
         dockerfile {
             filename 'Dockerfile'
-            additionalBuildArgs  '–-network=host'
+            additionalBuildArgs  '–-network=host .'
             reuseNode true
         }
     }
