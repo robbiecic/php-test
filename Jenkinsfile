@@ -1,7 +1,6 @@
 pipeline {
     agent {
         dockerfile {
-            echo 'Building docker image ... '
             additionalBuildArgs  '--network=host'
         }
     }
