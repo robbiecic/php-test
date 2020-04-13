@@ -1,9 +1,10 @@
 pipeline {
     agent {
-        docker {
-            additionalBuildArgs '–-network=host'
-            }
+        dockerfile {
+            filename 'Dockerfile'
+            additionalBuildArgs  '–-network=host'
         }
+    }
     stages {
         stage('build') {
             steps {
