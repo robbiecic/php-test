@@ -1,6 +1,7 @@
 pipeline {
     agent {
-        dockerfile {
+        docker {
+            filename Dockerfile
             additionalBuildArgs '–-network=host'
             }
         }
