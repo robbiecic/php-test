@@ -12,7 +12,7 @@ pipeline {
         }
         stage('test'){
             steps{
-                sh 'php ./vendor/bin/phpunit tests'
+                sh 'php /var/www/vendor/bin/phpunit tests'
             }
         }
     }
