@@ -1,5 +1,8 @@
 pipeline {
-    agent { dockerfile true }
+    agent { dockerfile {
+        args '–network=host'
+                }
+            }
     stages {
         stage('build') {
             steps {
