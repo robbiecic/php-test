@@ -21,7 +21,7 @@ RUN composer
 COPY composer.json /var/www/
 RUN cd /var/www/ && composer install && composer require --dev phpunit/phpunit && composer dump-autoload
 
-EXPOSE 80
+#EXPOSE 80
 
 #
 # ARCHIVED COMMANDS
