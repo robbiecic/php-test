@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: user-app-php
+  name: user-app-php
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: user-app-php
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: user-app-php
+    spec:
+      containers:
+        - image: user-app-php:latest
+          name: user-app-php
+          imagePullPolicy: Never
+          resources: {}
+          ports:
+            - containerPort: 80
+status: {}
