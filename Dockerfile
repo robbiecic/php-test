@@ -1,7 +1,7 @@
 FROM php:7.4-apache
 
 # INSTALL DEPENDENCIES
-RUN apt-get update && apt-get install zip unzip ca-certificates
+RUN apt-get update && apt-get install zip unzip ca-certificates -y
 
 # MOVE CONTENTS TO APACHE FOLDER
 COPY html/ /var/www/html/
