@@ -1,7 +1,7 @@
 FROM php:7.4-apache
 
 # INSTALL DEPENDENCIES
-RUN apt-get update && apt-get install zip unzip ca-certificates -y
+RUN apt-get update && apt-get install zip unzip ca-certificates
 
 # MOVE CONTENTS TO APACHE FOLDER
 COPY html/ /var/www/html/
@@ -15,7 +15,7 @@ RUN mv /usr/local/getcomposer/cacert.cert /usr/local/share/ca-certificates
 RUN update-ca-certificates
 
 # INSTALL COMPOSER & MOVE TO BIN DIRECTORY TO BE USED GLOBALLY
-RUN cd ~ && curl -sS GET https://getcomposer.org/installer | php
+RUN cd ~ && curl --header "Host: localhost" -sS GET https://getcomposer.org/installer | php
 RUN cd ~ && mv composer.phar /usr/local/bin/composer
 RUN composer
 COPY composer.json /var/www/
